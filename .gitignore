@@ -1,0 +1,52 @@
+# ═══════════════════════════════════════════
+#  car-RT .gitignore
+# ═══════════════════════════════════════════
+
+# ── Android / Gradle ──────────────────────
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.dex
+*.class
+*.log
+*.tmp
+*.bak
+*.swp
+
+# ── Kotlin / Java ─────────────────────────
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+out/
+bin/
+
+# ── IDE ───────────────────────────────────
+.vscode/
+*.code-workspace
+.idea/
+*.ipr
+*.iws
+
+# ── OS ────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# ── Secrets ───────────────────────────────
+*.keystore
+*.jks
+*.env
+secrets.properties
