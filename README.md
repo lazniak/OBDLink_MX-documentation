@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/assets/logo.svg" width="120" alt="car-RT logo" />
+  <img src="assets/logo.svg" width="120" alt="OBDLink MX+ Documentation" />
 </p>
 
-<h1 align="center">car-RT</h1>
+<h1 align="center">OBDLink MX+ — Technical Documentation</h1>
 
 <p align="center">
   <strong>Ultra-Fast Real-Time OBD-II Telemetry for Android</strong><br/>
@@ -71,37 +71,32 @@
 
 ## 📖 Documentation
 
-All technical documentation lives in [`docs/`](docs/):
-
 | Document | Description |
 |----------|-------------|
-| [**Technical Reference**](docs/technical-reference.md) | Complete hardware, protocol & implementation guide |
-| [**AT Command Reference**](docs/commands/at-commands.md) | ELM327-compatible AT command set |
-| [**ST Command Reference**](docs/commands/st-commands.md) | STN2120-exclusive extended commands |
-| [**PID Reference**](docs/pid-reference.md) | Complete Mode 01 PID table with formulas |
-| [**Performance Guide**](docs/performance-guide.md) | Optimization strategies for real-time polling |
-| [**Protocol Stack**](docs/protocol-stack.md) | OBD-II protocol deep-dive (CAN, ISO-TP, KWP) |
-| [**Android Integration**](docs/android-integration.md) | Bluetooth SPP connection & app architecture |
+| [**Technical Reference**](technical-reference.md) | Complete hardware, protocol & implementation guide |
+| [**AT Command Reference**](commands/at-commands.md) | ELM327-compatible AT command set |
+| [**ST Command Reference**](commands/st-commands.md) | STN2120-exclusive extended commands |
+| [**PID Reference**](pid-reference.md) | Complete Mode 01 PID table with formulas |
+| [**Performance Guide**](performance-guide.md) | Optimization strategies for real-time polling |
+| [**Protocol Stack**](protocol-stack.md) | OBD-II protocol deep-dive (CAN, ISO-TP, KWP) |
+| [**Android Integration**](android-integration.md) | Bluetooth SPP connection & app architecture |
 
 ## 🗂️ Repository Structure
 
 ```
-car-RT/
-├── docs/                          # 📖 Technical documentation
-│   ├── technical-reference.md     #    Master reference document
-│   ├── pid-reference.md           #    Complete PID table
-│   ├── performance-guide.md       #    RT optimization strategies
-│   ├── protocol-stack.md          #    Protocol deep-dive
-│   ├── android-integration.md     #    Android BT architecture
-│   ├── commands/                  #    Command references
-│   │   ├── at-commands.md         #    ELM327 AT commands
-│   │   └── st-commands.md         #    STN2120 ST commands
-│   └── assets/                    #    Diagrams & images
-│       └── logo.svg               #    Project logo
-├── app/                           # 📱 Android application (future)
-├── .gitignore                     #    Git ignore rules
-├── LICENSE                        #    Project license
-└── README.md                      #    This file
+OBDLink_MX-documentation/
+├── README.md                      # This file
+├── LICENSE                        # MIT License
+├── technical-reference.md         # 📖 Master reference (18 chapters)
+├── pid-reference.md               # 📊 Complete PID table + formulas
+├── performance-guide.md           # ⚡ RT optimization strategies
+├── protocol-stack.md              # 🔌 Protocol deep-dive
+├── android-integration.md         # 📱 Android BT architecture + Kotlin
+├── commands/
+│   ├── at-commands.md             # ELM327 AT command reference
+│   └── st-commands.md             # STN2120 ST/STPX command reference
+└── assets/
+    └── logo.svg                   # Project logo
 ```
 
 ## 🔑 Key Technical Decisions
