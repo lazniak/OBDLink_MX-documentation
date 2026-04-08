@@ -5,28 +5,28 @@
 
 ## Spis Treści
 
-1. [Architektura Sprzętowa OBDLink MX+](#1-architektura-sprzętowa)
-2. [Warstwa Komunikacji Bluetooth](#2-warstwa-bluetooth)
-3. [Android — Połączenie Bluetooth SPP/RFCOMM](#3-android-bluetooth-connection)
+1. [Architektura Sprzętowa OBDLink MX+](#1-architektura-sprzętowa-obdlink-mx)
+2. [Warstwa Komunikacji Bluetooth](#2-warstwa-komunikacji-bluetooth)
+3. [Android — Połączenie Bluetooth SPP/RFCOMM](#3-android--połączenie-bluetooth-sprfcomm)
 4. [Stos Protokołów OBD-II](#4-stos-protokołów-obd-ii)
-5. [Zestaw Komend AT (ELM327-Compatible)](#5-komendy-at)
-6. [Rozszerzone Komendy ST (STN-Exclusive)](#6-komendy-st)
-7. [Inicjalizacja Urządzenia — Sekwencja Optymalna](#7-inicjalizacja)
-8. [Protokoły Pojazdowe — Szczegóły Techniczne](#8-protokoły-pojazdowe)
-9. [Tryby Danych OBD-II (SAE J1979)](#9-tryby-danych)
-10. [Kompletna Tabela PID Mode 01](#10-tabela-pid)
-11. [Optymalizacja Performance — Real-Time Polling](#11-optymalizacja-performance)
-12. [CAN Bus Monitoring — Tryb Pasywny](#12-can-monitoring)
-13. [ISO-TP — Multi-Frame Communication](#13-iso-tp)
-14. [Architektura Aplikacji Android](#14-architektura-android)
-15. [Stabilność Połączenia i Reconnect](#15-stabilność)
-16. [Zarządzenie Energią — BatterySaver](#16-zarządzanie-energią)
-17. [Limity Techniczne i Wąskie Gardła](#17-limity)
-18. [Podsumowanie — Strategia Ultra-Fast RT](#18-podsumowanie)
+5. [Zestaw Komend AT (ELM327-Compatible)](#5-zestaw-komend-at-elm327-compatible)
+6. [Rozszerzone Komendy ST (STN-Exclusive)](#6-rozszerzone-komendy-st-stn-exclusive)
+7. [Inicjalizacja Urządzenia — Sekwencja Optymalna](#7-inicjalizacja-urządzenia--sekwencja-optymalna)
+8. [Protokoły Pojazdowe — Szczegóły Techniczne](#8-protokoły-pojazdowe--szczegóły-techniczne)
+9. [Tryby Danych OBD-II (SAE J1979)](#9-tryby-danych-obd-ii-sae-j1979)
+10. [Kompletna Tabela PID Mode 01](#10-kompletna-tabela-pid-mode-01)
+11. [Optymalizacja Performance — Real-Time Polling](#11-optymalizacja-performance--real-time-polling)
+12. [CAN Bus Monitoring — Tryb Pasywny](#12-can-bus-monitoring--tryb-pasywny)
+13. [ISO-TP — Multi-Frame Communication](#13-iso-tp--multi-frame-communication)
+14. [Architektura Aplikacji Android](#14-architektura-aplikacji-android)
+15. [Stabilność Połączenia i Reconnect](#15-stabilność-połączenia-i-reconnect)
+16. [Zarządzanie Energią — BatterySaver™](#16-zarządzanie-energią--batterysaver)
+17. [Limity Techniczne i Wąskie Gardła](#17-limity-techniczne-i-wąskie-gardła)
+18. [Podsumowanie — Strategia Ultra-Fast RT](#18-podsumowanie--strategia-ultra-fast-rt)
 
 ---
 
-## 1. Architektura Sprzętowa OBDLink MX+ {#1-architektura-sprzętowa}
+## 1. Architektura Sprzętowa OBDLink MX+
 
 ### Chip Główny: STN2120
 OBDLink MX+ jest wyposażony w **STN2120** — 32-bitowy procesor OBD od firmy **ScanTool.net (OBD Solutions LLC)**. Jest to następca STN1170 i STN1110, oferujący znacznie wyższą wydajność przetwarzania protokołów.
@@ -60,7 +60,7 @@ OBDLink MX+ jest wyposażony w **STN2120** — 32-bitowy procesor OBD od firmy *
 
 ---
 
-## 2. Warstwa Komunikacji Bluetooth {#2-warstwa-bluetooth}
+## 2. Warstwa Komunikacji Bluetooth
 
 ### Profil: SPP (Serial Port Profile)
 
@@ -94,7 +94,7 @@ OBDLink MX+ wykorzystuje **Bluetooth Classic 3.0** z profilem **SPP (Serial Port
 
 ---
 
-## 3. Android — Połączenie Bluetooth SPP/RFCOMM {#3-android-bluetooth-connection}
+## 3. Android — Połączenie Bluetooth SPP/RFCOMM
 
 ### 3.1 Wymagane Uprawnienia (AndroidManifest.xml)
 
@@ -201,7 +201,7 @@ val socket = method.invoke(device, 1) as BluetoothSocket
 
 ---
 
-## 4. Stos Protokołów OBD-II {#4-stos-protokołów-obd-ii}
+## 4. Stos Protokołów OBD-II
 
 ### Obsługiwane Protokoły Pojazdowe
 
@@ -235,7 +235,7 @@ OBDLink MX+ obsługuje **wszystkie** legislowane protokoły OBD-II oraz dodatkow
 
 ---
 
-## 5. Zestaw Komend AT (ELM327-Compatible) {#5-komendy-at}
+## 5. Zestaw Komend AT (ELM327-Compatible)
 
 OBDLink MX+ jest w pełni kompatybilny z zestawem komend ELM327 v1.4b. Każda komenda jest poprzedzona prefixem "AT".
 
@@ -301,7 +301,7 @@ OBDLink MX+ jest w pełni kompatybilny z zestawem komend ELM327 v1.4b. Każda ko
 
 ---
 
-## 6. Rozszerzone Komendy ST (STN-Exclusive) {#6-komendy-st}
+## 6. Rozszerzone Komendy ST (STN-Exclusive)
 
 Komendy STN są **ekskluzywne** dla chipów STN11xx/STN2120 i NIE są dostępne na klonach ELM327. To główna przewaga OBDLink nad tańszymi adapterami.
 
@@ -376,7 +376,7 @@ STPX h:7E0, d:010C, t:30, r:1
 
 ---
 
-## 7. Inicjalizacja Urządzenia — Sekwencja Optymalna {#7-inicjalizacja}
+## 7. Inicjalizacja Urządzenia — Sekwencja Optymalna
 
 ### 7.1 Sekwencja Minimalna (Szybki Start)
 
@@ -426,7 +426,7 @@ ATST 0A          → Timeout 40ms (wystarczający dla CAN)
 
 ---
 
-## 8. Protokoły Pojazdowe — Szczegóły Techniczne {#8-protokoły-pojazdowe}
+## 8. Protokoły Pojazdowe — Szczegóły Techniczne
 
 ### 8.1 CAN Bus (ISO 15765-4) — Protokół Docelowy
 
@@ -474,7 +474,7 @@ ATST 0A          → Timeout 40ms (wystarczający dla CAN)
 
 ---
 
-## 9. Tryby Danych OBD-II (SAE J1979) {#9-tryby-danych}
+## 9. Tryby Danych OBD-II (SAE J1979)
 
 ### 9.1 Standardowe Tryby (Mode/Service)
 
@@ -505,7 +505,7 @@ Response: 62 F4 0C [data] F4 0D [data] F4 05 [data]
 
 ---
 
-## 10. Kompletna Tabela PID Mode 01 {#10-tabela-pid}
+## 10. Kompletna Tabela PID Mode 01
 
 ### 10.1 PIDs Najważniejsze dla Real-Time (High-Priority)
 
@@ -574,7 +574,7 @@ Dekodowanie:
 
 ---
 
-## 11. Optymalizacja Performance — Real-Time Polling {#11-optymalizacja-performance}
+## 11. Optymalizacja Performance — Real-Time Polling
 
 ### 11.1 Strategia 1: Sekwencyjny Polling z ATAT2
 
@@ -728,7 +728,7 @@ Zamiast czekać na pełną odpowiedź, parsuj bajt po bajcie:
 
 ---
 
-## 12. CAN Bus Monitoring — Tryb Pasywny {#12-can-monitoring}
+## 12. CAN Bus Monitoring — Tryb Pasywny
 
 ### 12.1 Czym jest CAN Monitoring?
 
@@ -790,7 +790,7 @@ Wyślij **dowolny znak** (np. `\r`) aby przerwać tryb monitorowania. Adapter od
 
 ---
 
-## 13. ISO-TP — Multi-Frame Communication {#13-iso-tp}
+## 13. ISO-TP — Multi-Frame Communication
 
 ### 13.1 Kiedy Potrzebna Multi-Frame?
 
@@ -818,7 +818,7 @@ Standardowa ramka CAN ma **8 bajtów** danych. Po odjęciu nagłówka ISO-TP (1 
 
 ---
 
-## 14. Architektura Aplikacji Android {#14-architektura-android}
+## 14. Architektura Aplikacji Android
 
 ### 14.1 Model Wątkowy
 
@@ -960,7 +960,7 @@ class OBDForegroundService : Service() {
 
 ---
 
-## 15. Stabilność Połączenia i Reconnect {#15-stabilność}
+## 15. Stabilność Połączenia i Reconnect
 
 ### 15.1 Typowe Przyczyny Zerwania Połączenia
 
@@ -1015,7 +1015,7 @@ watchdog.schedule(object : TimerTask() {
 
 ---
 
-## 16. Zarządzanie Energią — BatterySaver™ {#16-zarządzanie-energią}
+## 16. Zarządzanie Energią — BatterySaver™
 
 ### 16.1 Automatyczny Sleep
 
@@ -1042,7 +1042,7 @@ ATIGN          → Sprawdź stan zapłonu ("ON" / "OFF")
 
 ---
 
-## 17. Limity Techniczne i Wąskie Gardła {#17-limity}
+## 17. Limity Techniczne i Wąskie Gardła
 
 ### 17.1 Wąskie Gardła — Pipeline
 
@@ -1096,7 +1096,7 @@ ATIGN          → Sprawdź stan zapłonu ("ON" / "OFF")
 
 ---
 
-## 18. Podsumowanie — Strategia Ultra-Fast RT {#18-podsumowanie}
+## 18. Podsumowanie — Strategia Ultra-Fast RT
 
 ### 18.1 Optymalna Konfiguracja
 
